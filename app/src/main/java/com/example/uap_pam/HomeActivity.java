@@ -1,6 +1,8 @@
 package com.example.uap_pam;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -9,11 +11,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private static final int REQUEST_TAMBAH_TANAMAN = 1;
     private RecyclerView recyclerView;
     private Button btnTambahList;
     private List<Tanaman> dataTanaman;
@@ -49,8 +54,23 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         btnTambahList.setOnClickListener(v -> {
-            dataTanaman.add(new Tanaman("Daun Baru", "Rp 250.000", R.drawable.sample_plant));
-            adapter.notifyDataSetChanged();
+            Intent intent = new Intent(HomeActivity.this, TambahTanamanActivity.class);
+            startActivityForResult(intent, REQUEST_TAMBAH_TANAMAN);
         });
+
+        @Override
+        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
+
+            if (requestCode == REQUEST_TAMBAH_TANAMAN && resultCode == RESULT_OK && data != null) {
+                String nama = data.getStringExtra("nama");
+                String harga = data.getStringExtra("harga");
+                int gambar = data.getIntExtra("gambar", R.drawable.sample_plant);
+
+                Tanaman tanamanBaru = new Tanaman(nama, harga, gambar);
+                dataTanaman.add(tanamanBaru);
+                adapter.notifyDataSetChanged();
+            }
+        }
     }
 }

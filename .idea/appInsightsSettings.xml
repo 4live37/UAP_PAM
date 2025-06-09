@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.uap_pam" />
+                  <option name="mobileSdkAppId" value="1:818304757592:android:d17b8f68d4a2a2c0c93f2d" />
+                  <option name="projectId" value="uappam-320d3" />
+                  <option name="projectNumber" value="818304757592" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

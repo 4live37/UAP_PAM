@@ -1,0 +1,52 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F8FF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GreenFresh"
+            android:textColor="#FFFFFF"
+            android:background="#69CD57"
+            android:gravity="center"
+            android:padding="16dp"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageTanaman"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/sample_plant"
+            android:background="@drawable/green_border_bg" />
+
+        <TextView android:text="Nama Tanaman :" />
+        <EditText android:id="@+id/etNama" />
+
+        <TextView android:text="Harga :" />
+        <EditText android:id="@+id/etHarga" />
+
+        <TextView android:text="Deskripsi :" />
+        <EditText
+            android:id="@+id/etDeskripsi"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:gravity="top|start" />
+
+        <Button
+            android:id="@+id/btnSimpan"
+            android:text="Simpan"
+            android:backgroundTint="#69CD57"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="24dp" />
+    </LinearLayout>
+</ScrollView>
